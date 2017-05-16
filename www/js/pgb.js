@@ -1,15 +1,7 @@
-function init() {
-	document.addEventListener("deviceready",onDeviceReady, false);
-}
-
-function onDeviceReady() {
-	navigator.notification.beep(1);
-}
-
 $(document).ready(function() {
-    $.getJSON("deputies.json",function(result){
+    $.getJSON("https://api.myjson.com/bins/gcw6p",function(result){
       $.each(result, function(i, field){
-        $("#deputiesList").append('<li><a href="">' + field.deputy_name + '</a></li>');
+        $("#deputiesList").append("<li><a href='#'>" + field.deputy_name + "</a></li>");
      });
     });
  });
