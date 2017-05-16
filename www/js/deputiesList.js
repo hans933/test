@@ -5,11 +5,15 @@ var db;
 function onDeviceReady() {
 	navigator.notification.beep(1);
 	var db = window.sqlitePlugin.openDatabase({name: "baza.db"});
-	db.transaction(queryDB);
+	db.transaction(queryDB, transaction_error);
+}
+
+function transaction_error(dp, error) {
+    alert("Database Error: " + error);
 }
 
 function queryDB(dp) {
-	var sql = ('SELECT deputy_id, deputy_name, birth_date, education, degree, profession, party_name, party_shortcut FROM Deputies WHERE activity=1')
+	var sql = ('SELECT * FROM Deputies WHERE activity=1')
 	dp.executeSQL(sql, [], querySuccess);
 }
 
