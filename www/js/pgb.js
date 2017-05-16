@@ -26,7 +26,7 @@ function querySuccess(dp, results) {
     var htmlString = '';
     var len = results.rows.length;
     for(var i=0; i<len; i++) {
-    htmlString += '<li>' + results.rows.item(i).deputy_name + '</li>';
+    htmlString += '<li>test</li>';
     }
     $('#deputiesList').html(htmlString);
 }
