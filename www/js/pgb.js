@@ -8,7 +8,7 @@ var db;
 function onDeviceReady() {
 	navigator.notification.beep(1);
 	window.plugins.sqlDB.copy("baza.db", 0, success, error);
-	var db = window.sqlitePlugin.openDatabase({name: "baza.db"});
+	var db = window.sqlitePlugin.openDatabase("baza.db");
 	db.transaction(queryDB);
 }
 
